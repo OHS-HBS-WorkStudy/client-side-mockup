@@ -1,15 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
 
+import { useState } from 'react';
+
 import NewThread from './NewThread.js';
-import Home from './HomePage.js';
+import Controller from './Controller.js';
 import Navigator from './Navigator.js';
 
 function App() {
+  const [screenState, changeScreen] = useState(0);
+
+  function toNewThread() {
+    changeScreen(1);
+    console.log(screenState);
+  }
+
   return (
     <div>
-      <Home />
-      <Navigator />
+      <Controller screen={screenState} />
+      <Navigator action={toNewThread} />
     </div>
   );
 }
