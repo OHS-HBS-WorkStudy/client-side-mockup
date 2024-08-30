@@ -1,7 +1,7 @@
-export default function Navigator() {
+export default function Navigator({action}) {
     return(
         <div>
-            <button>New Question</button>
+            <button onClick={action}>New Question</button>
         </div>
     );
 }
