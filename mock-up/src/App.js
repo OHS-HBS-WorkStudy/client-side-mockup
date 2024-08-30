@@ -15,9 +15,13 @@ function App() {
     console.log(screenState);
   }
 
+  function toThread() {
+    changeScreen(2);
+  }
+
   return (
     <div>
-      <Controller screen={screenState} />
+      <Controller screen={screenState} homeFunction={toThread}/>
       <Navigator action={toNewThread} />
     </div>
   );
