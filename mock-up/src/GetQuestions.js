@@ -1,5 +1,11 @@
 export default function GetQuestions({fromHome}) {
-    let count = Number(localStorage.getItem("QuestionCount"));
+    let count;
+    try {
+        count = Number(localStorage.getItem("QuestionCount"));
+    }catch(err) {
+        count = 0;
+        localStorage.setItem("QuestionCount", 0);
+    }
 
     if(count > 0) {
         let questions = [];
@@ -10,10 +16,15 @@ export default function GetQuestions({fromHome}) {
         
         console.log(questions);
 
+        function trigger(count) {
+                console.log("question"+count);
+                fromHome("question"+count);
+        }
+
         return(
             <div>
             {questions.map((question) => 
-                <h2><button onClick={trigger}>{question.name}</button></h2>
+                <h2><button onClick={trigger.bind(this, question.count)}>{question.name}</button></h2>
             )}
             </div>
         );

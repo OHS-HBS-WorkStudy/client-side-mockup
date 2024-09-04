@@ -4,18 +4,23 @@ import NewThread from './NewThread.js';
 
 import Thread from './Thread.js';
 
-export default function Controller({screen, homeFunction}) {
+export default function Controller({screen, homeFunction, threadData}) {
+    function questionName(name) {
+        //console.log(name);
+        homeFunction(name);
+    }
+
     if(screen === 1) {
         return(
             <NewThread />
         );
     }else if(screen === 2){
         return(
-            <Thread />
+            <Thread name={threadData}/>
         );
     }else {
         return(
-            <Home homeFunctions={homeFunction}/>
+            <Home homeFunctions={questionName}/>
         );
     }
 }
