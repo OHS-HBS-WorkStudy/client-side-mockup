@@ -27,7 +27,8 @@ export default function NewThread() {
 
             let val_json = {
                 name: val1,
-                desc: val2
+                desc: val2,
+                count: count
             };
 
             SaveData("question"+count, val_json);
