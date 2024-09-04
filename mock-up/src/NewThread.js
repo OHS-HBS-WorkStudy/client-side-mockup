@@ -7,16 +7,31 @@ export default function NewThread() {
         localStorage.setItem(name, val);
     }
 
+    function getCount() {
+        let val = Number(localStorage.getItem("QuestionCount"));
+
+        if(val === undefined) {
+            return 1;
+        }else {
+            localStorage.setItem("QuestionCount", val+1);
+
+            return val+1;
+        }
+    }
+
     function handlePress() {
+            let count = getCount();
+
             let val1 = document.getElementById("QuestionName").value;
             let val2 = document.getElementById("QuestionDesc").value;
 
             let val_json = {
                 name: val1,
-                desc: val2
+                desc: val2,
+                count: count
             };
 
-            SaveData("question1", val_json);
+            SaveData("question"+count, val_json);
     }
 
     return(
