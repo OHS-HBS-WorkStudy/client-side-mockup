@@ -1,8 +1,13 @@
 import { useState } from 'react';
 
-export default function Voting({questionName}) {
-    const [val, alterVal] = useState(0);
+export default function Voting({questionName, questionVal}) {
+    const [val, alterVal] = useState(questionVal);
     const [hasAnswered, willAnswer] = useState(false);
+
+    function getLSVal() {
+        let data = JSON.parse(localStorage.getItem(questionName));
+        alterVal(data.valStat);
+    }
 
     function toLS(useVal){
         let data = JSON.parse(localStorage.getItem(questionName));

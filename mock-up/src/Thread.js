@@ -9,7 +9,7 @@ export default function Thread({name}) {
 
     return (
         <div>
-            <Voting questionName={name}/>
+            <Voting questionName={name} questionVal={question.voteStat}/>
             <h1>{question.name}</h1>
             <p>{question.desc}</p>
         </div>
