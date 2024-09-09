@@ -33,6 +33,7 @@ export default function NewThread() {
                     replyCount:0,
                     replies:[]
                 }
+                voteStat: 0
             };
 
             SaveData("question"+count, val_json);
