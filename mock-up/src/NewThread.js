@@ -29,6 +29,10 @@ export default function NewThread() {
                 name: val1,
                 desc: val2,
                 count: count,
+                replying: {
+                    replyCount:0,
+                    replies:[]
+                }
                 voteStat: 0
             };
 

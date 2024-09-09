@@ -1,3 +1,6 @@
+
+import Reply from './replying.js';
+import GetReplies from './GetReplies.js';
 import Voting from './Voting.js';
 
 export default function Thread({name}) {
@@ -11,7 +14,9 @@ export default function Thread({name}) {
         <div>
             <Voting questionName={name} questionVal={question.voteStat}/>
             <h1>{question.name}</h1>
-            <p>{question.desc}</p>
+            <h2>{question.desc}</h2>
+            <GetReplies questionName={name} />
+            <Reply questionName={name} />
         </div>
     );
 }
