@@ -1,3 +1,5 @@
+import Reply from "../replying.js";
+
 export default function Thread({name}) {
     console.log(name);
     let data = localStorage.getItem(name);
