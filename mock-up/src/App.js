@@ -23,10 +23,14 @@ function App() {
     changeScreen(2);
   }
 
+  function toHomePage() {
+    changeScreen(0)
+  }
+
   return (
     <div>
       <Controller screen={screenState} homeFunction={toThread} threadData={questionName}/>
-      <Navigator action={toNewThread} />
+      <Navigator action={toNewThread} action2={toHomePage} />
     </div>
   );
 }
