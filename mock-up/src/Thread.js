@@ -1,3 +1,5 @@
+import Voting from './Voting.js';
+
 export default function Thread({name}) {
     console.log(name);
     let data = localStorage.getItem(name);
@@ -7,6 +9,7 @@ export default function Thread({name}) {
 
     return (
         <div>
+            <Voting />
             <h1>{question.name}</h1>
             <p>{question.desc}</p>
         </div>
