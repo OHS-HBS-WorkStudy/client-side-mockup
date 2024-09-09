@@ -1,4 +1,4 @@
-import Reply from "../replying.js";
+import Reply from './replying.js';
 
 export default function Thread({name}) {
     console.log(name);
@@ -11,6 +11,7 @@ export default function Thread({name}) {
         <div>
             <h1>{question.name}</h1>
             <p>{question.desc}</p>
+            <Reply questionName={name} />
         </div>
     );
 }
