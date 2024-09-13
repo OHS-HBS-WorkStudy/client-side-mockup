@@ -4,7 +4,9 @@ import NewThread from './NewThread.js';
 
 import Thread from './Thread.js';
 
-export default function Controller({screen, homeFunction, threadData}) {
+import Login from './LoginPage.js';
+
+export default function Controller({screen, homeFunction, threadData, logFunction}) {
     function questionName(name) {
         //console.log(name);
         homeFunction(name);
@@ -18,7 +20,11 @@ export default function Controller({screen, homeFunction, threadData}) {
         return(
             <Thread name={threadData}/>
         );
-    }else {
+    } else if(screen === 3){
+        return(
+            <Login func={logFunction}/>
+        );
+    } else {
         return(
             <Home homeFunctions={questionName}/>
         );
