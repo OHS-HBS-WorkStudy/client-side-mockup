@@ -27,10 +27,14 @@ function App() {
     changeScreen(0)
   }
 
+  function toSignUp() {
+    changeScreen(4);
+}
+
   return (
     <div>
       <Controller screen={screenState} homeFunction={toThread} threadData={questionName}/>
-      <Navigator action={toNewThread} action2={toHomePage} />
+      <Navigator action={toNewThread} action2={toHomePage} action3={toSignUp} />
     </div>
   );
 }
