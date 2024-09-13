@@ -10,6 +10,7 @@ import Navigator from './Navigator.js';
 function App() {
   const [screenState, changeScreen] = useState(0);
   const [questionName, changeQuestion] = useState("none");
+  const [loggedIn, isLoggedIn] = useState(false);
 
   function toNewThread() {
     changeScreen(1);
@@ -27,14 +28,27 @@ function App() {
     changeScreen(0)
   }
 
-  function toSignUp() {
+
+  function toLoginPage() {
+    changeScreen(3);
+  }
+
+  function trueLog() {
+    isLoggedIn(true);
+    console.log(loggedIn);
+  }
+  
+    function toSignUp() {
     changeScreen(4);
 }
 
   return (
     <div>
+      <Controller screen={screenState} homeFunction={toThread} threadData={questionName} logFunction={trueLog}/>
+      <Navigator action={toNewThread} action2={toHomePage} action3={toLoginPage} />
+    <div>
       <Controller screen={screenState} homeFunction={toThread} threadData={questionName}/>
-      <Navigator action={toNewThread} action2={toHomePage} action3={toSignUp} />
+      <Navigator action={toNewThread} action2={toHomePage} action4={toSignUp} />
     </div>
   );
 }
