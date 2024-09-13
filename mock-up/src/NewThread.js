@@ -32,7 +32,7 @@ export default function NewThread() {
                 replying: {
                     replyCount:0,
                     replies:[]
-                }
+                },
                 voteStat: 0
             };
 
