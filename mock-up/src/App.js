@@ -28,6 +28,7 @@ function App() {
     changeScreen(0)
   }
 
+
   function toLoginPage() {
     changeScreen(3);
   }
@@ -36,11 +37,18 @@ function App() {
     isLoggedIn(true);
     console.log(loggedIn);
   }
+  
+    function toSignUp() {
+    changeScreen(4);
+}
 
   return (
     <div>
       <Controller screen={screenState} homeFunction={toThread} threadData={questionName} logFunction={trueLog}/>
       <Navigator action={toNewThread} action2={toHomePage} action3={toLoginPage} />
+    <div>
+      <Controller screen={screenState} homeFunction={toThread} threadData={questionName}/>
+      <Navigator action={toNewThread} action2={toHomePage} action4={toSignUp} />
     </div>
   );
 }
