@@ -27,10 +27,14 @@ function App() {
     changeScreen(0)
   }
 
+  function toLoginPage() {
+    changeScreen(3);
+  }
+
   return (
     <div>
       <Controller screen={screenState} homeFunction={toThread} threadData={questionName}/>
-      <Navigator action={toNewThread} action2={toHomePage} />
+      <Navigator action={toNewThread} action2={toHomePage} action3={toLoginPage} />
     </div>
   );
 }
