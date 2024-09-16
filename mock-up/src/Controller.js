@@ -1,7 +1,7 @@
 import Home from './HomePage.js';
 
 import NewThread from './NewThread.js';
-
+import useLogin from './LoginFun.js';
 import Thread from './Thread.js';
 import Login from './LoginPage.js';
 import SignUp from './SignUp.js'
@@ -11,6 +11,8 @@ export default function Controller({screen, homeFunction, threadData, logFunctio
         //console.log(name);
         homeFunction(name);
     }
+
+    const { trueLog } = useLogin();
 
     if(screen === 1) {
         return(

@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 
+import LoginProvider from './LoginFun.js';
+
 import { useState } from 'react';
 
 import NewThread from './NewThread.js';
@@ -10,7 +12,6 @@ import Navigator from './Navigator.js';
 function App() {
   const [screenState, changeScreen] = useState(0);
   const [questionName, changeQuestion] = useState("none");
-  const [loggedIn, isLoggedIn] = useState(false);
 
   function toNewThread() {
     changeScreen(1);
@@ -33,20 +34,18 @@ function App() {
     changeScreen(3);
   }
 
-  function trueLog() {
-    isLoggedIn(true);
-    console.log(loggedIn);
-  }
   
     function toSignUp() {
     changeScreen(4);
 }
 
   return (
+    <LoginProvider>
     <div>
-      <Controller screen={screenState} homeFunction={toThread} threadData={questionName} logFunction={trueLog}/>
+      <Controller screen={screenState} homeFunction={toThread} threadData={questionName}/>
       <Navigator action={toNewThread} action2={toHomePage} action3={toLoginPage} action4={toSignUp} />
     </div>
+    </LoginProvider>
   );
 }
 

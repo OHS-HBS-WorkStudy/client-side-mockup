@@ -1,5 +1,9 @@
+import useLogin from './LoginFun.js';
 
 export default function Login({func}) {
+
+    const { trueLog } = useLogin();
+    
     //let userLogedIn = 1 ? 'True' : 'False';
 
     //console.log(userLogedIn);
