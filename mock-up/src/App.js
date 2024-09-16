@@ -45,10 +45,7 @@ function App() {
   return (
     <div>
       <Controller screen={screenState} homeFunction={toThread} threadData={questionName} logFunction={trueLog}/>
-      <Navigator action={toNewThread} action2={toHomePage} action3={toLoginPage} />
-    <div>
-      <Controller screen={screenState} homeFunction={toThread} threadData={questionName}/>
-      <Navigator action={toNewThread} action2={toHomePage} action4={toSignUp} />
+      <Navigator action={toNewThread} action2={toHomePage} action3={toLoginPage} action4={toSignUp} />
     </div>
   );
 }
