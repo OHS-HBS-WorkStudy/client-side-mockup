@@ -31,7 +31,8 @@ export default function NewThread() {
 
         let dataArray = {
             title: get1,
-            desc: get2
+            desc: get2,
+            id: num
         };
 
         DataSave(("question"+num), dataArray);
