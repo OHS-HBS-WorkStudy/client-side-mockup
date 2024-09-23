@@ -1,9 +1,13 @@
+import { useContext } from "react";
+import { SwitchContext } from "../App";
+
 import NewThread from "./NewThread";
 
-import CustomButton from "../CustomButton";
+import CustomButton2 from "../CustomButton2";
 
 export default function Home() {
-
+    const toQuestion = useContext(SwitchContext);
+    
     function getQuestions() {
         let num;
         try {
@@ -36,7 +40,7 @@ export default function Home() {
                 <h2>Home</h2>
 
                 {questions.map(question => 
-                    <h1>{question.title}</h1>
+                    <CustomButton2 func={toQuestion} data1={6} data2={question.id} name={question.title} />
                 )}
 
             </div>
