@@ -26,17 +26,27 @@ export default function Home() {
 
     }
 
-    let questions = getQuestions();
-    console.log(questions)
 
-    return(
-        <div>
-            <h2>Home</h2>
+    try{
+        let questions = getQuestions();
+        console.log(questions)
 
-            {questions.map(question => 
-                <h1>{question.title}</h1>
-            )}
+        return(
+            <div>
+                <h2>Home</h2>
 
-        </div>
-    );
+                {questions.map(question => 
+                    <h1>{question.title}</h1>
+                )}
+
+            </div>
+        );
+    }catch(err) {
+        return(
+            <div>
+                <h2>Home</h2>
+                <p><b>No Questions Available</b></p>
+            </div>
+        )
+    }
 }
