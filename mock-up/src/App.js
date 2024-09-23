@@ -10,7 +10,7 @@ export const SwitchContext = createContext(0);
 
 function App() {
 
-  const [screenState, switchScreen] = useState(7);
+  const [screenState, switchScreen] = useState(0);
 
   function changeScreen(val) {
     switchScreen(val);
