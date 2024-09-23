@@ -49,7 +49,7 @@ export default function Home() {
         return(
             <div>
                 <h2>Home</h2>
-                <p><b>No Questions Available</b></p>
+                <p><b>No Questions</b></p>
             </div>
         )
     }

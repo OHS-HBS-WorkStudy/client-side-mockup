@@ -1,4 +1,9 @@
+import { useContext } from 'react';
+
+import { SwitchContext } from '../App';
+
 export default function Login() {
+    let screenChange = useContext(SwitchContext);
     function confirmUser() {
         try{
             let userCount = Number(localStorage.getItem("userCount"));
@@ -28,6 +33,8 @@ export default function Login() {
 
             if(successful === 0) {
                 console.log("no user exists");
+            }else {
+                screenChange(0);
             }
         }catch(err) {
             console.log("login attempt failed")

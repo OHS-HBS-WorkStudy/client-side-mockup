@@ -10,8 +10,7 @@ export const SwitchContext = createContext(0);
 export const QuestionContext = createContext(0);
 
 function App() {
-
-  const [screenState, switchScreen] = useState(7);
+  const [screenState, switchScreen] = useState(0);
   const [questionType, changeType] = useState(0);
 
   function changeScreen(val) {
