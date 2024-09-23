@@ -1,10 +1,16 @@
-export default function Navigator({action, action2, action3, action4}) {
+import { useContext } from 'react';
+
+import {SwitchContext} from './App.js';
+import CustomButton from './CustomButton.js';
+
+export default function Navigator() {
+    const screen_switch = useContext(SwitchContext);
+
     return(
         <div>
-            <button onClick={action2}>Home</button>
-            <button onClick={action}>New Question</button>
-            <button onClick={action3}>Login</button>
-            <button onClick={action4}>Sign Up</button>
+            <CustomButton func={screen_switch} data={0} name={"Home"} />
+            <CustomButton func={screen_switch} data={5} name={"New Question"} />
+            <CustomButton func={screen_switch} data={4} name={"Account"} />
         </div>
     );
 }

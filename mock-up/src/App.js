@@ -1,51 +1,40 @@
 import logo from './logo.svg';
 import './App.css';
 
-import { useState } from 'react';
+import { useState, createContext } from 'react';
 
-import NewThread from './NewThread.js';
-import Controller from './Controller.js';
-import Navigator from './Navigator.js';
+import System from './System.js';
+
+export const ScreenContext = createContext(0);
+export const SwitchContext = createContext(0);
+export const QuestionContext = createContext(0);
 
 function App() {
-  const [screenState, changeScreen] = useState(0);
-  const [questionName, changeQuestion] = useState("none");
-  const [loggedIn, isLoggedIn] = useState(false);
+  const [screenState, switchScreen] = useState(0);
+  const [questionType, changeType] = useState(0);
 
-  function toNewThread() {
-    changeScreen(1);
+  function changeScreen(val) {
+    switchScreen(val);
+    console.log(val);
     console.log(screenState);
   }
 
-  function toThread(name) {
-    console.log(name);
-    changeQuestion(name);
-    console.log(questionName);
-    changeScreen(2);
+  function changeScreen(val, type) {
+    switchScreen(val);
+    changeType(type);
+    console.log(val);
+    console.log(screenState);
   }
-
-  function toHomePage() {
-    changeScreen(0)
-  }
-
-
-  function toLoginPage() {
-    changeScreen(3);
-  }
-
-  function trueLog() {
-    isLoggedIn(true);
-    console.log(loggedIn);
-  }
-  
-    function toSignUp() {
-    changeScreen(4);
-}
 
   return (
-    <div>
-      <Controller screen={screenState} homeFunction={toThread} threadData={questionName} logFunction={trueLog}/>
-      <Navigator action={toNewThread} action2={toHomePage} action3={toLoginPage} action4={toSignUp} />
+    <div class="App">
+      <ScreenContext.Provider value={screenState}>
+        <QuestionContext.Provider value={questionType}>
+            <SwitchContext.Provider value={changeScreen}>
+              <System />
+            </SwitchContext.Provider>
+        </QuestionContext.Provider>
+      </ScreenContext.Provider>
     </div>
   );
 }
