@@ -9,9 +9,17 @@ export const ScreenContext = createContext(0);
 export const SwitchContext = createContext(0);
 export const QuestionContext = createContext(0);
 
+export const AccountContext = createContext(0);
+export const AccountActiveContext = createContext(0);
+export const AccountChangeContext = createContext(0);
+export const AccountActivateContext = createContext(0);
+
 function App() {
   const [screenState, switchScreen] = useState(0);
   const [questionType, changeType] = useState(0);
+
+  const [accountState, accountChange] = useState("Guest");
+  const [accountActive, activateAccount] = useState(false);
 
   function changeScreen(val) {
     switchScreen(val);
@@ -26,15 +34,31 @@ function App() {
     console.log(screenState);
   }
 
+  function setAccount(data) {
+    accountChange(data);
+  }
+
+  function accountActivater() {
+    activateAccount(true);
+  }
+
   return (
     <div class="App">
-      <ScreenContext.Provider value={screenState}>
-        <QuestionContext.Provider value={questionType}>
-            <SwitchContext.Provider value={changeScreen}>
-              <System />
-            </SwitchContext.Provider>
-        </QuestionContext.Provider>
-      </ScreenContext.Provider>
+      <AccountContext.Provider value={accountState}>
+        <AccountActiveContext.Provider value={accountActive}>
+          <AccountChangeContext.Provider value={setAccount}>
+            <AccountActivateContext.Provider value={accountActivater}>
+                <ScreenContext.Provider value={screenState}>
+                  <QuestionContext.Provider value={questionType}>
+                      <SwitchContext.Provider value={changeScreen}>
+                        <System />
+                      </SwitchContext.Provider>
+                  </QuestionContext.Provider>
+                </ScreenContext.Provider>
+              </AccountActivateContext.Provider>
+            </AccountChangeContext.Provider>
+          </AccountActiveContext.Provider>
+      </AccountContext.Provider>
     </div>
   );
 }

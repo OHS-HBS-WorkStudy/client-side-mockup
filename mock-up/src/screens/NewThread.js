@@ -1,7 +1,12 @@
+import { useContext } from "react";
+
+import { AccountContext } from "../App";
+
 import CustomButton from "../CustomButton";
 
 
 export default function NewThread() {
+    const getAccount = useContext(AccountContext);
 
     function DataSave(title, dataArray) {
         let datas = JSON.stringify(dataArray);
@@ -32,8 +37,14 @@ export default function NewThread() {
         let dataArray = {
             title: get1,
             desc: get2,
-            id: num
+            id: num,
+            users: {
+                list: [getAccount],
+                creator: 0
+            }
         };
+
+        dataArray.users.creator = dataArray.users.list[0];
 
         DataSave(("question"+num), dataArray);
     }
