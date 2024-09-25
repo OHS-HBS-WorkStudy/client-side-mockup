@@ -32,7 +32,11 @@ export default function NewThread() {
         let dataArray = {
             title: get1,
             desc: get2,
-            id: num
+            id: num,
+            reply: {
+                count:0,
+                replies: []
+            }
         };
 
         DataSave(("question"+num), dataArray);
