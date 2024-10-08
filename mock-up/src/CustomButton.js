@@ -4,6 +4,6 @@ export default function CustomButton({func, data, name}) {
     }
 
     return(
-        <h4 onClick={func2}>{name}</h4>
+        <h4 onClick={func2} className="custom-button">{name}</h4>
     );
 }

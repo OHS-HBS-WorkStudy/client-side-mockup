@@ -7,7 +7,7 @@ export default function Navigator() {
     const screen_switch = useContext(SwitchContext);
 
     return(
-        <div>
+        <div class="navButtons">
             <CustomButton func={screen_switch} data={0} name={"Home"} />
             <CustomButton func={screen_switch} data={5} name={"New Question"} />
             <CustomButton func={screen_switch} data={4} name={"Account"} />

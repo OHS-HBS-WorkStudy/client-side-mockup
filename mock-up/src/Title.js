@@ -12,8 +12,8 @@ export default function Title() {
         <div class="Title"> 
             <h1>Academics Anonymous</h1>
 
-            <CustomButton func={change_screen} data={1} name={"Sign-Up"} />
             <CustomButton func={change_screen} data={2} name={"Login"} />
+            <CustomButton func={change_screen} data={1} name={"Sign-Up"} />
         </div>
     );
 }

@@ -36,3 +36,62 @@
     transform: rotate(360deg);
   }
 }
+
+
+.Title {
+  display: inline-block;            
+  text-align: center;      
+  height: clamp(40vmin 50%, 100vmax);
+  width:  clamp(40vmin 50%, 100vmax);
+  top: 0;
+}
+
+
+.navButtons {
+  display: flex;                   
+  justify-content: center;         
+  align-items: center;            
+  position: fixed;                 
+  bottom: 0;                      
+  left: 0;                       
+  right: 0;                      
+  padding: 10px;                  
+  background-color: white;       
+  box-shadow: 0 -3px 5px rgba(0,0,0,0.1); 
+}
+
+.navButtons > .custom-button {
+  display: inline-block;
+  white-space: nowrap;          
+  margin-left: 10px;               
+  padding: 10px;               
+  border-radius: 10px;             
+  background-color: grey;          
+  gap: calc(30px + 3vw);
+}
+
+.navButtons > .custom-button:hover {
+  cursor: pointer;
+  background-color: lightgray;
+}
+
+.Home {
+  display: flex; 
+  flex-direction: column;   
+  align-items: center;  
+  margin-top: 20px;
+  height: calc(100vh - 40px);
+  overflow-y: auto;  
+  overflow-x: hidden;
+}
+
+.Home > .custom-button2 { 
+  padding: 10px 20px;                
+  border-radius: 10px;             
+  background-color: grey; 
+  margin-left: 10px; 
+  width: 200px;    
+  overflow: hidden;     
+  white-space: nowrap;  
+  text-overflow: ellipsis;
+}
