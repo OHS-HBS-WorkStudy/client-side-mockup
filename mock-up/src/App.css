@@ -46,7 +46,6 @@
   top: 0;
 }
 
-
 .navButtons {
   display: flex;                   
   justify-content: center;         
@@ -95,3 +94,58 @@
   white-space: nowrap;  
   text-overflow: ellipsis;
 }
+
+
+
+.formRow {
+  display: flex;                 
+  justify-content: space-between; 
+  align-items: center;            
+  width: 100%;                   
+  padding: 20px;
+  scrollbar-width: none;
+}
+
+
+.inputStack {
+  display: flex;
+  flex-direction: column;        
+  gap: 10px;                     
+  width: auto;                          
+  transform: translateX(10vmax);   
+}
+
+
+.inputGroup {
+  display: flex;
+  align-items: center;            
+  gap: 5px;                       
+}
+
+
+.inputGroup input {
+  width: 200px;                 
+  padding: 5px;
+}
+
+.buttontest {
+  padding: 10px;
+  transform: translateX(-40vmax);  
+}
+
+.divider {
+  position: fixed;               
+  left: 50%;                     
+  top: 0;                        
+  bottom: 0;                    
+  width: 2px;                  
+  background: rgba(0, 0, 0, 0); 
+  z-index: -1;                   
+}
+
+
+
+
+
+
+
