@@ -208,6 +208,7 @@ html {
   border: none;
 }
 
+
 /* Nav Styles */
 nav {
   position: fixed;
@@ -222,24 +223,26 @@ nav {
   padding: 10px;
 }
 nav h1 {
+
   margin-right: auto;
 }
 
 nav svg {
   fill: white;
 }
-
 .link-container {
   height: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
+  border: 1px solid red;
 }
 
 nav .a {
   display: flex;
   margin: 0;
   gap: 15px;
+
 }
 
 #sidebar-active{
@@ -250,7 +253,7 @@ nav .a {
   display: none;
 }
 
-@media(max-device-width: 635px) {
+@media only screen and (max-width: 640px) {
   .link-container {
     position: fixed;
     flex-direction: column;
