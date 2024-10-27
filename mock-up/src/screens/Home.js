@@ -36,13 +36,17 @@ export default function Home() {
         console.log(questions)
 
         return(
-            <div>
+              <div>
+            <body>
                 <h2>Home</h2>
-
-                {questions.map(question => 
-                    <CustomButton2 func={toQuestion} data1={6} data2={question.id} name={question.title} />
-                )}
-
+                <div className="Home">
+                    <div className="grid-container">
+                        {questions.map((question) => 
+                            <CustomButton2 func={toQuestion} data1={6} data2={question.id} name={question.title} />
+                        )}
+                    </div>
+                </div>
+            </body>
             </div>
         );
     }catch(err) {
