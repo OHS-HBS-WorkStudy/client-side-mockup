@@ -50,7 +50,6 @@ html {
   display: flex;
   height: 100%;
   width:  100%;
-  justify-content: center;
   align-items: center;
   background-color: rgb(21, 59, 130);
   color: white;
@@ -58,8 +57,8 @@ html {
 }
 
 body {
-  margin-top: 50px;
-  height: 100%;
+  width:  100%;
+  border: 2px solid red;
 }
 
 .SignUp {
@@ -138,28 +137,37 @@ body {
   justify-content: center;
   width: 100%;
   border: 2px solid red;
-  height: 100%;
+  height: calc(100% - 80px);
 }
 
 .grid-container {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
   width: 100%;
-  height: 100%;
+  height: calc(100% - 500px);
   max-width: 1200px; 
-  padding: 20px;
+  padding: 10px;
   box-sizing: border-box; 
   border: 2px solid red;
+  text-overflow: ellipsis;
+  overflow: scroll;
 }
 .grid-item {
   background-color: rgb(90, 36, 90);
   color: white;
   font-size: 25px;
-  padding: 30px;
+  padding: 10px;
   text-align: center;
   border-radius: 8px;
+  text-overflow: ellipsis;
   border: 2px solid red;
+
+  white-space: nowrap;    
+  overflow: hidden;        
+  text-overflow: ellipsis;  
+  
+  max-width: 1199px;   
 }
 
 @media (max-width: 640px) {
