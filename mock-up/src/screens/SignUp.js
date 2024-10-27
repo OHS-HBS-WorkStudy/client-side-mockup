@@ -24,16 +24,23 @@ export default function SignUp() {
     }
 
     return(
-        <div>
-            <h2>Signup Page</h2>
-
-            <label for="user">Username: </label>
-            <input id="user" name="user"></input>
-            <br></br>
-            <label for="password">Password: </label>
-            <input id="password" type="password" name="password"></input>
-            <br></br>
-            <button onClick={createUser}>Submit</button>
+        <body>
+        <div className="SignUp">
+          <div id="left">
+            <h3>Create Account</h3>
+            <b>First Name:</b>
+            <div className="inputStyle">
+            <input id="fname" type="text"/>
+            <b>Last Name:</b>
+            <input id="lname"  type="text"/>
+            <b>Password:</b>
+            <input id="password"  type="text"/>  
+            <b>Email:</b>
+            <input id="email"  type="text"/>
+            </div>
+            <button className="btn-send" onClick={createUser}>Submit</button>
+          </div>
         </div>
+        </body>
     );
 }

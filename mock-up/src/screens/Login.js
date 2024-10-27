@@ -42,16 +42,19 @@ export default function Login() {
     }
 
     return(
-        <div>
-            <h2>Login Page</h2>
-
-            <label for="user">Username: </label>
-            <input id="user" name="user"></input>
-            <br></br>
-            <label for="password">Password: </label>
-            <input id="password" type="password" name="password"></input>
-            <br></br>
-            <button onClick={confirmUser}>LogIn</button>
+        <body>
+        <div className="Login">
+          <div id='center'>
+          <div className="inputStyle">
+          <h3>Log In</h3>
+          <b>Email:</b>
+          <input id="email" type="text"/>
+          <b>Password:</b>
+          <input id="password" type="text"/>
+          </div>
+          <button className="btn-send" onClick={confirmUser}>Log In</button>
+          </div>
         </div>
+        </body>
     );
 }

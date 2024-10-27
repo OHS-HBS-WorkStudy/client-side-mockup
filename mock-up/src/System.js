@@ -14,9 +14,8 @@ export default function System() {
         <AccountContext.Provider value={account}>
             <AccountChangeContext.Provider value={accountChange}>
                 <div>
-                    <Title />
-                    <Display />
                     <Navigator />
+                    <Display />
                 </div>
             </AccountChangeContext.Provider>
         </AccountContext.Provider>
