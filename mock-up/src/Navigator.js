@@ -23,6 +23,7 @@ export default function Navigator() {
                     <label for="sidebar-active" className="close-sidebar">
                         <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
                     </label>
+            <input type="text" placeholder='Search...' />
            <div className="a">
             <CustomButton func={change_screen} data={1} name={"Sign-Up"} />
             <CustomButton func={change_screen} data={2} name={"Login"}/>
