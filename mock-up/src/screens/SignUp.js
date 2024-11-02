@@ -25,22 +25,43 @@ export default function SignUp() {
 
     return(
         <body>
-        <div className="SignUp">
-          <div id="left">
-            <h3>Create Account</h3>
-            <b>First Name:</b>
-            <div className="inputStyle">
-            <input id="fname" type="text"/>
-            <b>Last Name:</b>
-            <input id="lname"  type="text"/>
-            <b>Password:</b>
-            <input id="password"  type="text"/>  
-            <b>Email:</b>
-            <input id="email"  type="text"/>
+            <div className="SignUp">
+                <div className="container">
+                    <div class="split right">
+                            <div className="center">
+                                    <h3>Create Account</h3>
+                                <div className="input-container">
+                                <label for="fname">First Name:</label>
+                                <input id="fname" type="text" placeholder="Enter your first name" />
+                                <label for="lname">Last Name:</label>
+                                <input id="lname" type="text" placeholder="Enter your last name"/>
+                                <label for="password">Password:</label>
+                                <input id="password" type="text" placeholder="Enter your password"/>  
+                                <label for="email">Email:</label>
+                                <input id="email"  type="text" placeholder="Enter your email"/>
+                                <button className="btn-send">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="split left">
+                            <div className="center">
+                                <div className="btn-container">
+                                    <label for="btn"><b>Current Account Type:</b></label>
+                                        <button className="btn" >
+                                            <span>Student</span>
+                                        </button>
+                                        <button className="btn" >
+                                            <span>Parent</span>
+                                        </button>
+                                        <button className="btn">
+                                            <span>Teacher</span>
+                                        </button>
+                                </div>
+                            </div>
+                        </div>
+                </div>
             </div>
-            <button className="btn-send" onClick={createUser}>Submit</button>
-          </div>
-        </div>
         </body>
     );
 }

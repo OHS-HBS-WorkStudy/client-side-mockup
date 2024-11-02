@@ -42,7 +42,7 @@ export default function Home() {
                 <div className="Home">
                     <div className="grid-container">
                         {questions.map((question) => 
-                            <CustomButton2 func={toQuestion} data1={6} data2={question.id} name={question.title} />
+                            <CustomButton2 func={toQuestion} data1={6} data2={question.id} name={question.title} desc={question.desc} />
                         )}
                     </div>
                 </div>
