@@ -43,7 +43,7 @@ export default function Login() {
 
     return(
         <body>
-            <div className="Login">
+            <div>
                 <div className="container">
                     <div className="split left">
                         <div className="center">

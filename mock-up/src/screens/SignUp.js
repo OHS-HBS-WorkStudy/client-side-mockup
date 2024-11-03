@@ -25,7 +25,7 @@ export default function SignUp() {
 
     return(
         <body>
-            <div className="SignUp">
+            <div>
                 <div className="container">
                     <div class="split right">
                             <div className="center">

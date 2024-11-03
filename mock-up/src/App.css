@@ -80,7 +80,7 @@ nav {
   width: 100%;
   background-color: gray;
   padding: 10px;
-  z-index: 1000; /* Ensure nav is on top */
+  z-index: 1000; 
 }
 
 nav h1 {
@@ -98,11 +98,37 @@ nav svg {
   align-items: center;
 }
 
+.link-container .a .hov {
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
 nav .a {
   display: flex;
   margin: 0;
   gap: 15px;
 }
+
+#hov {
+  position: relative;
+  cursor: pointer;
+}
+
+#hov::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px; 
+  width: 0;
+  background-color: lightgray;
+  transition: width 0.5s ease;
+}
+
+#hov:hover::after {
+  width: 100%; 
+}
+
 
 #sidebar-active {
   display: none;
@@ -112,17 +138,22 @@ nav .a {
   display: none;
 }
 
+
 @media only screen and (max-width: 640px) {
   .link-container {
     position: fixed;
     flex-direction: column;
     align-items: flex-start;
     top: 0;
-    right: -100%;
-    width: 200px;
+    right: -50vw;
+    width: 50vw;
     background-color: gray;
     box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
     transition: 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  #sidebar-active:checked ~ .link-container {
+    right: 0; 
   }
 
   nav .a {
@@ -143,26 +174,100 @@ nav .a {
     right: 0;
   }
 
-  #sidebar-active:checked ~ #overlay {
-    height: 100%;
-    width: 100%;
+  #overlay {
     position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: background-color 0.75s cubic-bezier(0.4, 0, 0.2, 1); 
+  }
+
+  #sidebar-active:checked ~ #overlay {
+    background-color: rgba(0, 0, 0, 0.5);
     top: 0;
     left: 0;
   }
 }
 
-/* Sign Up Screen Styling */
-.SignUp .split.left {
-  background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
-  color: #333333;
+/* General Styles */
+.split {
+  flex: 1; 
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  min-height: 100vh; 
+  padding: 20px;
 }
 
-.SignUp .split.left .btn-container {
+.split.left {
+  background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+  color: #333333;
+}
+
+.split.right {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #ffffff;
+}
+
+.center {
+  text-align: center;
+  max-width: 80%;
+}
+
+.input-container {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  text-align: left;
+}
+
+.input-container label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.input-container input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.input-container input[type="text"]::placeholder {
+  color: #dcdcdc;
+}
+
+.btn-send {
+  width: 100%;
+  background-color: black;
+  color: #ffffff;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn-send:hover {
+  background: #00b4d8;
+}
+
+.SignUp h1, .SignUp h3,
+.Login h1, .Login h3 {
+  margin-bottom: 20px;
+}
+
+
+.btn-container {
   width: 100%;
   padding: 20px;
   display: flex;
@@ -170,186 +275,17 @@ nav .a {
   gap: 15px;
 }
 
-.SignUp .split.left .btn {
-  width: 100%;
-  background-color: black;
-  color: #ffffff;
-  padding: 12px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-  margin: 0;
-}
-
-.SignUp .split.right {
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  color: #ffffff;
-}
-
-.SignUp .center {
-  text-align: center;
-  max-width: 80%;
-}
-
-.SignUp h1, h3 {
-  margin-bottom: 20px;
-}
-
-.SignUp .input-container {
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 20px;
-  border-radius: 8px;
-  width: 100%;
-  max-width: 400px;
-  text-align: left;
-}
-
-.SignUp .input-container label,
-.SignUp .btn-container label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: bold;
-}
-
-.SignUp .input-container input[type="text"] {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border: none;
-  border-radius: 4px;
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-}
-
-.SignUp .input-container input[type="text"]::placeholder {
-  color: #dcdcdc;
-}
-
-.SignUp .btn-send {
-  width: 100%;
-  background-color: black;
-  color: #ffffff;
-  padding: 12px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background 0.3s ease;
-}
-
-.SignUp .btn-send:hover {
-  background: #00b4d8;
-}
-
-/* Login Screen Styling */
-.Login .split.left {
-  background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
-  color: #333333;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.Login .split.left h1 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-
-.Login .split.left p {
-  font-size: 1.1rem;
-  max-width: 400px;
-  line-height: 1.6;
-  color: #555555;
-}
-
-.Login .split.right {
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  color: #ffffff;
-}
-
-.Login .center {
-  text-align: center;
-  max-width: 80%;
-}
-
-.Login h1, h3 {
-  margin-bottom: 20px;
-}
-
-.Login .input-container {
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 20px;
-  border-radius: 8px;
-  width: 100%;
-  max-width: 400px;
-  text-align: left;
-}
-
-.Login .input-container label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: bold;
-}
-
-.Login .input-container input[type="text"] {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border: none;
-  border-radius: 4px;
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-}
-
-.Login .input-container input[type="text"]::placeholder {
-  color: #dcdcdc;
-}
-
-.Login .btn-send {
-  width: 100%;
-  background-color: black;
-  color: #ffffff;
-  padding: 12px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background 0.3s ease;
-}
-
-.Login .btn-send:hover {
-  background: #00b4d8;
-}
-
-/* Overlay1 Styles */
-#overlay1 {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1000; 
-  display: none; 
-}
-
-/* Mobile Styles */
 @media (max-width: 640px) {
   .container {
-    flex-direction: column; /* Stack vertically on small screens */
-    height: 100%; /* Allow full height on mobile */
+    flex-direction: column; 
+    height: 100%; 
   }
 
   .split {
-    min-height: 100vh; /* Ensures it fills the viewport */
-    width: 100%; /* Full width on small screens */
-    margin: 0; /* Remove margin */
-    padding: 20px; /* Maintain padding */
-  }
-
-  #overlay1 {
-    display: block; /* Show overlay when needed */
+    min-height: 100vh; 
+    width: 100%; 
+    margin: 0; 
+    padding: 20px; 
   }
 }
 
