@@ -39,7 +39,6 @@ export default function SignUp() {
                                 <input id="password" type="text" placeholder="Enter your password"/>  
                                 <label for="email">Email:</label>
                                 <input id="email"  type="text" placeholder="Enter your email"/>
-                                <button className="btn-send">Submit</button>
                             </div>
                         </div>
                     </div>
@@ -57,6 +56,7 @@ export default function SignUp() {
                                         <button className="btn">
                                             <span>Teacher</span>
                                         </button>
+                                        <button className="btn-send">Submit</button>
                                 </div>
                             </div>
                         </div>

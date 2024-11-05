@@ -36,14 +36,16 @@ export default function Home() {
         console.log(questions)
 
         return(
-              <div>
+              <div className="nav-space">
             <body>
                 <h2>Home</h2>
                 <div className="Home">
+
                     <div className="grid-container">
                         {questions.map((question) => 
                             <CustomButton2 func={toQuestion} data1={6} data2={question.id} name={question.title} desc={question.desc} />
                         )}
+                     
                     </div>
                 </div>
             </body>

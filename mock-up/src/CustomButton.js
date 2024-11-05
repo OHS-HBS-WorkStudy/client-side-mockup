@@ -4,6 +4,6 @@ export default function CustomButton({func, data, name}) {
     }
 
     return(
-        <p  id="hov" onClick={func2} >{name}</p>
+        <p onClick={func2} >{name}</p>
     );
 }
