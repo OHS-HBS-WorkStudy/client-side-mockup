@@ -389,53 +389,76 @@ nav .a {
   padding: 20px;
   margin: 10px;
   border: 10px solid green;
+}
 
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.btn.loading {
+ animation: fade 3s forwards;
+}
+
+@keyframes fade {
+  0% {
+    background-color: indigo; 
+    border-color: black;
+  }
+  33% {
+    background-color: #aacfb6; 
+    border-color: #afceb9;
+  }
+  66% {
+    background-color: #80d39b; 
+    border-color: #80d39b;
+  }
+  100% {
+    background-color: #80d39b; 
+    border-color: #80d39b;
+  }
+}
+
+
+.loader {
+  width: 20px;
+  height: 20px;
+  border: 3px solid black; 
+  border-top: 3px solid gray; 
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-left: 10px; 
+}
+
+@keyframes spin {
+  to { 
+    transform: rotate(0deg);
+  }
+  from { 
+    transform: rotate(360deg); 
+  }
 }
 
 
 
-button {
-  font-weight: bold;
-  padding: 5px 10px;
-  cursor: pointer;
-  margin-bottom: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  margin: 5px;
-  border-radius: 5px;
-}
 
-.editor-container {
-  max-width: 500px;
-  margin: 20px auto;
-  background: gray; 
-  border: 1px solid black;
-  border-radius: 5px;
-  padding: 5px; 
-}
 
-/* Styling for the text box */
+
 .text-box {
   padding: 10px;
   min-height: 150px;
   max-height: 600px;
   overflow: scroll;
-  background: white; /* Background color for the text box itself */
+  background: white; 
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
   color: #333;
   position: relative;
 }
-.text-box:empty:before {
-  content: attr(data-placeholder); 
-  color: #aaa;
-  position: absolute;
-  left: 10px;
-  top: 10px;
-  
-}
+
 
 
 
