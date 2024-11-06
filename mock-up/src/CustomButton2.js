@@ -4,6 +4,12 @@ export default function CustomButton({func, data1, data2, name, desc}) {
     }
 
     return(
-        <h4 onClick={func2} className="grid-item ">{name} <br /> {desc}</h4>
+        <h4 onClick={func2} className="grid-item ">
+            <h3 dangerouslySetInnerHTML={{ __html: name }} />
+      
+            <p dangerouslySetInnerHTML={{ __html: desc }} />
+        </h4>
+
+        
     );
 }

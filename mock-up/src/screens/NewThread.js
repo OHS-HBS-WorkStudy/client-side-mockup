@@ -1,12 +1,10 @@
-import { useState } from "react";
-import CustomButton from "../CustomButton";
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css'
+import React, { useState } from "react";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 export default function NewThread() {
   const [questionTitle, setQuestionTitle] = useState("");
   const [questionDesc, setQuestionDesc] = useState("");
-  const [textvalue, setTextvalue]  = useState("");
 
   function DataSave(title, dataArray) {
     localStorage.setItem(title, JSON.stringify(dataArray));
@@ -30,18 +28,27 @@ export default function NewThread() {
     console.log("Submitted data:", dataArray);
   }
 
+  function renderContent(htmlContent) {
+    return { __html: htmlContent };
+  }
+
   return (
-    <div className="nav-space">
+    <div>
+      <div className="nav-space"></div>
       <div className="NewThread">
-        <div className="split">
-          <div className="container">
-            <div className="center">
-              <div className="input-container">
-                <label>Question Title</label>
-                
-              <ReactQuill theme="snow" value={textvalue} onChange={setTextvalue} />
-              </div>
+        <div className="center">
+          <div className="input-container">
+            <label htmlFor="text-box">Question Title</label>
+            <div className="text-box">
+              <ReactQuill theme="snow" value={questionTitle} onChange={setQuestionTitle} />
             </div>
+
+            <label htmlFor="text-box">Question Description</label>
+            <div className="text-box">
+              <ReactQuill theme="snow" value={questionDesc} onChange={setQuestionDesc} />
+            </div>
+
+            <button onClick={questionSubmit}>Submit Question</button>
           </div>
         </div>
       </div>

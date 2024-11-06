@@ -83,7 +83,7 @@ nav {
   z-index: 1000; 
 }
 
-nav-space {
+.nav-space {
     padding-top: 60px; 
 }
 
@@ -373,6 +373,25 @@ nav .a {
   border: 10px solid green;
 }
 
+.NewThread .center {
+  width: 100vh;
+  height: 90vh;
+  display: flex;
+  flex-direction: row;
+  flex: 1 1;
+  justify-content: center;
+  align-items: center;
+  border: 10px solid green;
+}
+
+.NewThread .input-container {
+  width: 100%;
+  padding: 20px;
+  margin: 10px;
+  border: 10px solid green;
+
+}
+
 
 
 button {
@@ -400,6 +419,8 @@ button {
 .text-box {
   padding: 10px;
   min-height: 150px;
+  max-height: 600px;
+  overflow: scroll;
   background: white; /* Background color for the text box itself */
   border: 1px solid #ccc;
   border-radius: 5px;

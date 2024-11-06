@@ -38,6 +38,7 @@ export default function Home() {
         return(
               <div>
             <body>
+            <div className="nav-space"></div>
                 <h2>Home</h2>
                 <div className="Home">
                     <div className="grid-container">
@@ -52,6 +53,7 @@ export default function Home() {
     }catch(err) {
         return(
             <div>
+                <div className="nav-space"></div>
                 <h2>Home</h2>
                 <p><b>No Questions</b></p>
             </div>
