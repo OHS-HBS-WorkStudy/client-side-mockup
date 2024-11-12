@@ -5,21 +5,27 @@ import DOMPurify from "dompurify";
 export default function Thread() {
     const questionType = useContext(QuestionContext);
 
+    // Get and parse the data from localStorage
     const data = JSON.parse(localStorage.getItem("question" + questionType));
 
-
-    const sanitizedTitle = DOMPurify.sanitize(data.title);
-    const sanitizedDesc = DOMPurify.sanitize(data.desc);
-
+    // Conditionally sanitize if data exists
+    const sanitizedTitle = data ? DOMPurify.sanitize(data.title) : "";
+    const sanitizedDesc = data ? DOMPurify.sanitize(data.desc) : "";
 
     return (
         <div>
             <div className="nav-space"></div>
             <div>
-                <h3 dangerouslySetInnerHTML={{__html: sanitizedTitle  }} />
-                
-                <p dangerouslySetInnerHTML={{ __html: sanitizedDesc }} />
+                <div
+                    className="submitted-content"
+                    dangerouslySetInnerHTML={{ __html: sanitizedTitle }}
+                />
+                <div
+                    className="submitted-content"
+                    dangerouslySetInnerHTML={{ __html: sanitizedDesc }}
+                />
             </div>
         </div>
     );
 }
+
