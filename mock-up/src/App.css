@@ -72,35 +72,130 @@ body, html {
 nav {
   position: fixed;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
-  flex-direction: row;
   top: 0;
   left: 0;
   height: 60px;
   width: 100%;
   background-color: gray;
-  padding: 10px;
-  z-index: 1000; 
+  padding: 10px 20px;
+  z-index: 1000;
+  box-sizing: border-box;
 }
 
 .nav-space {
-    padding-top: 60px; 
+  padding-top: 60px;
 }
 
 nav h1 {
-  margin-right: auto;
+  margin-right: 15px;
+  white-space: nowrap;
 }
 
-nav svg {
+.searchbar {
+  display: flex;
+  align-items: center;
+  flex-shrink: 10;
+  flex-grow: 3;  
+  min-width: 40vw; 
+  max-width: 50vw; 
+  height: 25px;
+  box-sizing: border-box;
+  border: 1px solid green; 
+}
+
+.search-box.open {
+  width: 100%; 
+  border: 1px solid red;
+}
+
+
+.search-box {
+  position: relative;
+  height: 25px;
+  width: 25px;  
+
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  overflow: hidden;
+  transition: width 0.2s ease;
+  flex-grow: 0;  
+}
+
+.search-box.open {
+  width: 100%; 
+}
+
+.search-box input {
+  position: relative;
+  height: 100%;
+  width: 100%; 
+  padding-right: 50px;
+  border-radius: 25px;
+  outline: none;
+  border: none;
+  padding-left: 20px;
+  font-size: 18px;
+  opacity: 0; 
+  transition: opacity 0.5s ease;
+  transition: width 0.5 ease;
+}
+
+.search-box.open input {
+  opacity: 1;  
+}
+
+.search-box .icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 25px;
+  background: indigo;
+  text-align: center;
+  border-radius: 0 25px 25px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.5s ease;
+}
+
+.search-box.open .icon {
+  width: 50px;
+  background: white;
+}
+
+.search-box.open svg {
+  fill: indigo;
+}
+
+.search-box svg {
   fill: white;
 }
 
+.box {
+  max-width: 600px;
+  width: 100%;
+  display: flex;
+  flex: 1 2;
+  justify-content: flex-end;
+}
+
 .link-container {
-  height: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
+  gap: 15px;
+  flex-shrink: 0; 
+  white-space: nowrap;
+}
+
+
+
+nav svg {
+  fill: white;
 }
 
 .link-container .a .hov {
@@ -110,6 +205,8 @@ nav svg {
 
 nav .a {
   display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0;
   gap: 15px;
 }
@@ -144,13 +241,14 @@ nav .a {
 }
 
 
+
 @media only screen and (max-width: 640px) {
   .link-container {
     position: fixed;
     flex-direction: column;
     align-items: flex-start;
     top: 0;
-    right: -50vw; /* Off-screen by default */
+    right: -50vw;
     width: 50vw;
     height: 100vh;
     background-color: gray;
@@ -400,11 +498,11 @@ body, html {
 
 .NewThread .text-box .ql-container {
   background-color: white;
-  padding-bottom: 10px; /* Space below the editor for word count */
+  padding-bottom: 10px; 
 }
 
 .NewThread .text-box div {
-  margin-top: 5px; /* Control spacing between editor and word count */
+  margin-top: 5px; 
 }
 
 .NewThread .center {
@@ -598,75 +696,4 @@ body, html {
   align-items: center;
   justify-content: center;
   background-color: #ffffff;
-}
-
-.account .box {
-  max-width: 400px;
-  width: 100%;
-  background: red;
-  border: 1px solid black;
-}
-
-.account .search-box {
-  position: relative;
-  height: 25px;
-  width: 25px; 
-  max-width: 380px;
-  background: blue;
-  margin: auto;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
-  border-radius: 25px;
-  overflow: hidden;
-  transition: width 0.3s ease;
-}
-
-.account .search-box.open {
-  width: 100%; 
-}
-
-.account .search-box input {
-  position: relative;
-  height: 100%;
-  width: 100%; 
-  padding-right: 50px; 
-  border-radius: 25px;
-  outline: none;
-  border: none;
-  padding-left: 20px;
-  font-size: 18px;
-  opacity: 1;
-  transition: opacity 0.3s ease;
-}
-
-
-.account .search-box input {
-  opacity: 0; 
-}
-
-.account .search-box.open input {
-  opacity: 1; 
-}
-
-.account .search-box.open .icon {
-  width: 50px;
-}
-
-.account .search-box .icon {
-  width: 25px;
-}
-
-.account .search-box .icon {
-  position: absolute;
-  right: 0;
-  top: 0;
-  height: 25px;
-  background: lightcoral;
-  height: 100%;
-  text-align: center;
-  border-radius: 0 25px 25px 0;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: width 0.3s ease;
 }
