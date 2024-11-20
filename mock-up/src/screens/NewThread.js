@@ -65,21 +65,20 @@ export default function NewThread() {
     }
   };
 
-  // Editor styles with consistent height
 const editorStyle = {
   width: "100%",
-  minHeight: "160px",  // Set consistent minHeight
+  minHeight: "160px",  
   overflowY: "auto",
   backgroundColor: "white",
-  paddingBottom: "10px" // Optional: Control bottom spacing
+  paddingBottom: "10px" 
 };
 
 const editorStyle1 = {
   width: "100%",
-  minHeight: "160px",  // Match minHeight to editorStyle
+  minHeight: "160px",  
   overflowY: "auto",
   backgroundColor: "white",
-  paddingBottom: "10px" // Optional: Control bottom spacing
+  paddingBottom: "10px" 
 };
 
 

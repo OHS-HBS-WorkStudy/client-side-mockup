@@ -1,15 +1,25 @@
-export default function CustomButton({func, data1, data2, name, desc}) {
-    function func2() {
-        func(data1, data2);
-    }
+import DOMPurify from "dompurify";
+export default function CustomButton2({ func, data1, data2, name, desc }) {
 
-    return(
-        <h4 onClick={func2} className="grid-item ">
-            <h3 dangerouslySetInnerHTML={{ __html: name }} />
-      
-            <p dangerouslySetInnerHTML={{ __html: desc }} />
-        </h4>
+  const sanitizedTitle =  DOMPurify.sanitize(name);
+  const sanitizedDesc = DOMPurify.sanitize(desc);
 
-        
+    return (
+      <div
+        className="grid-item"
+        onClick={(e) => func(e)}
+        data-data1={data1}
+        data-data2={data2}
+      >
+        <div
+                    className="submitted-content"
+                    dangerouslySetInnerHTML={{ __html: sanitizedTitle }}
+                />
+                <div
+                    className="submitted-content"
+                    dangerouslySetInnerHTML={{ __html: sanitizedDesc }}
+                />
+        </div>
+
     );
-}
+  }

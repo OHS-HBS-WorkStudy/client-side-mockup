@@ -30,8 +30,30 @@ export default function Home() {
 
     }
 
+    function expandAndNavigate(event, data1, data2) {
+        const target = event.currentTarget; 
+        target.classList.add("expanding"); 
+    
+     
+        setTimeout(() => {
+            toQuestion(data1, data2);
+        }, 500); 
+
+        const close = document.getElementById("close");
+
+        close.addEventListener("click", event => {
+            target.classList.remove("expanding"); 
+        });
+    }
+
+
+    
+    
+
 
     try{
+    
+          
         let questions = getQuestions();
         console.log(questions)
 
@@ -43,8 +65,17 @@ export default function Home() {
                 <div className="Home">
                     <div className="grid-container">
                         {questions.map((question) => 
-                            <CustomButton2 func={toQuestion} data1={6} data2={question.id} name={question.title} desc={question.desc} />
+                            <CustomButton2
+                            key={question.id} 
+                            func={expandAndNavigate} 
+                            data1={6} 
+                            data2={question.id} 
+                            name={question.title} 
+                            desc={question.desc} 
+                           />
                         )}
+
+                    
                     </div>
                 </div>
             </body>
