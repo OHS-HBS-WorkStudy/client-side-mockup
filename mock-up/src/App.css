@@ -214,19 +214,8 @@ nav .a {
   cursor: pointer;
 }
 
-#hov::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 2px; 
-  width: 0;
-  background-color: lightgray;
-  transition: width 0.5s ease;
-}
-
-#hov:hover::after {
-  width: 100%; 
+#hov:hover {
+  transform: scale(1.07);
 }
 
 
@@ -238,9 +227,6 @@ nav .a {
   display: none;
 }
 
-
-
-/* Styles for 945px */
 @media only screen and (max-width: 945px) {
   .link-container {
     position: fixed;
@@ -252,7 +238,7 @@ nav .a {
     height: 100vh;
     background-color: gray;
     box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
-    transition: right 0.5s ease;
+    transition: right 0.5s ease-in-out;
     z-index: 1001;
   }
 
