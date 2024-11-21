@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { SwitchContext } from "../App";
 
 import NewThread from "./NewThread";
@@ -7,87 +7,70 @@ import CustomButton2 from "../CustomButton2";
 
 export default function Home() {
     const toQuestion = useContext(SwitchContext);
-    
+    const [isAnimating, setIsAnimating] = useState(false);
+    const [selectedThread, setSelectedThread] = useState(null);
+
+    function handleExpand(questionId) {
+        setSelectedThread(questionId);
+        setIsAnimating(true);
+
+       
+        setTimeout(() => {
+            toQuestion(6, questionId); 
+        }, 1000); 
+    }
+
     function getQuestions() {
         let num;
         try {
             num = Number(localStorage.getItem("questionCount"));
-        }catch(err) {
+        } catch (err) {
             num = 0;
             localStorage.setItem("questionCount", 0);
         }
 
-        if(num > 0) {
+        if (num > 0) {
             let questionArray = [];
             for (let i = 0; i < num; i++) {
-                let data = localStorage.getItem("question"+(i+1));
+                let data = localStorage.getItem("question" + (i + 1));
                 questionArray.push(JSON.parse(data));
             }
-
-            return questionArray
+            return questionArray;
         }
-
-
+        return [];
     }
 
-    function expandAndNavigate(event, data1, data2) {
-        const target = event.currentTarget; 
-        target.classList.add("expanding"); 
-    
-     
-        setTimeout(() => {
-            toQuestion(data1, data2);
-        }, 500); 
+    const stripHTML = (html) => {
+        const div = document.createElement('div');
+        div.innerHTML = html;
+        return div.textContent || div.innerText || '';
+      };
 
-        const close = document.getElementById("close");
+    const questions = getQuestions();
 
-        close.addEventListener("click", event => {
-            target.classList.remove("expanding"); 
-        });
-    }
-
-
-    
-    
-
-
-    try{
-    
-          
-        let questions = getQuestions();
-        console.log(questions)
-
-        return(
-              <div>
-            <body>
+    return (
+        <div>
             <div className="nav-space"></div>
-                <h2>Home</h2>
                 <div className="Home">
-                    <div className="grid-container">
-                        {questions.map((question) => 
-                            <CustomButton2
-                            key={question.id} 
-                            func={expandAndNavigate} 
-                            data1={6} 
-                            data2={question.id} 
-                            name={question.title} 
-                            desc={question.desc} 
-                           />
-                        )}
+                {isAnimating && <div className="expanding-div"></div>}
+                <div className="grid-container">
+                    {questions.map((question) => (
+                    <div
+                        key={question.id}
+                        className="grid-item"
+                        onClick={() => handleExpand(question.id)}
+                    >
+                        <div className="vote-counter">2</div>
+                        <div className="grid-item-content"> 
+                            <div className="grid-item-title">{stripHTML(question.title)}</div>
+                            <div className="grid-item-desc">{stripHTML(question.desc)}</div>
+                        </div>
 
-                    
                     </div>
+                    ))}
                 </div>
-            </body>
-            </div>
-        );
-    }catch(err) {
-        return(
-            <div>
-                <div className="nav-space"></div>
-                <h2>Home</h2>
-                <p><b>No Questions</b></p>
-            </div>
-        )
-    }
+                </div>
+
+        </div>
+    );
 }
